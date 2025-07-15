@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="container">
+        <div class="row align-items-center justify-content-center p-5 text-light fw-bolder
+bg-success fs-1">
+            Your Recipe Collection!!
+
+        </div>
+        <div class="row my-5">
+           @for (item of savedRecipes; track $index) {
+             <div class="col-lg-3">
+                <div class="p-3">
+                    <img class="card-img-top" [src]="item.recipeImage" alt="" />
+                    <div class="card-body d-flex align-items-center justify-content-between">
+                        <h5 class="card-title">{{item.recipeName}}</h5>
+                        <button class="btn">
+                            <i class="fa-solid fa-trash text-danger"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+           }
+        </div>

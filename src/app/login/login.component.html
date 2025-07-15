@@ -1,0 +1,24 @@
+<div class="container d-flex justify-content-center align-items-center" style="background: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');height: 100vh;width: 100%;">
+
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()"   class="row w-50 bg-light p-5 d-flex flex-column gap-3 shadow rounded">
+        <h1>Cooke Media <i class="fa-solid fa-cookie-bite"></i></h1>
+        <input type="text" name="email" formControlName="email" placeholder="Enter email" class="form-control">
+      
+        @if (loginForm.get("email")?.errors&& loginForm.get("email")?.touched) {
+            <div class="text-danger fw-bold">
+            Invalid email
+        </div>
+        }
+        
+        <input type="text" name="password" formControlName="password" placeholder="Enter password" class="form-control">
+
+          @if (loginForm.get("password")?.errors&& loginForm.get("password")?.touched) {
+            <div class="text-danger fw-bold">
+            Paassword is Required
+        </div>
+        }
+      
+        <button type="submit" class="btn btn-success">Login</button>
+    </form>
+
+</div>

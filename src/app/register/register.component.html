@@ -1,0 +1,25 @@
+<div class="container d-flex justify-content-center align-items-center" style="background: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');height: 100vh;width: 100%;">
+
+    <div class="row">
+        <form class="col-8" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+            <div class="row bg-light p-5 d-flex flex-column gap-3 shadow rounded">
+                <h1>Cooke Media <i class="fa-solid fa-cookie-bite"></i></h1>
+                <input type="text" formControlName="username" placeholder="Enter username" class="form-control">
+                <input type="text"   formControlName="email" placeholder="Enter email" class="form-control">
+                <input type="text"  formControlName="password" placeholder="Enter password" class="form-control">
+                <button class="btn btn-success" type="submit">Register</button>
+            </div>
+        </form>
+        <div class="col-4 fw-bold">
+            <h1>Create New Account</h1>
+            <p>What you will get?</p>
+            <ul>
+                <li>Different Recipes</li>
+                <li>Easy way to Make Recipe</li>
+                <li>Save your Favorite Recipes</li>
+                <li>Download your Recipes</li>
+            </ul>
+        </div>
+    </div>
+
+</div>

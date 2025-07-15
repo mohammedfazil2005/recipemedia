@@ -1,0 +1,72 @@
+<section>
+    <div class="container p-3">
+        <div class="row">
+            <div class="col-4">
+                <h1>Filter</h1>
+            </div>
+            <div class="col-8 d-flex justify-content-between align-items-center">
+                <h1>All Recipes</h1>
+                <input [(ngModel)]="searchKey" name="searchKey"  class="form-control w-50" type="text" placeholder="Search your Recipe Name here!!">
+            </div>
+        </div>
+    </div>
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-4">
+                
+                <div class="mb-3 d-flex flex-column align-items-start">
+                    <button class="ms-3 btn" (click)="fetchAllRecipes()">All</button>
+                    <button  class="btn fw-bold" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                        Cuisine Type<i class="fa-solid fa-angle-down"></i>
+                    </button>
+                    <div class="collapse multi-collapse" id="multiCollapseExample1">
+                        <div class="d-flex flex-wrap justify-content-start mt-3 w-100">
+                          
+                             @for (item of allCuisine; track $index) {
+                                   <button (click)="filterRecipeByThereType('cuisine',item)" class="me-3 mb-2 btn">{{item}}</button>
+                             }
+                            
+                           
+                            
+                        </div>
+                    </div>
+                </div>
+    
+                
+                <div>
+                    <a class="btn fw-bold" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">
+                        Meal Type <i class="fa-solid fa-angle-down"></i>
+                    </a>
+                    <div class="collapse multi-collapse" id="multiCollapseExample2">
+                        <div class="d-flex flex-wrap justify-content-start mt-3 w-100">
+                           
+                              @for (item of AllMealType; track $index) {
+                                  <button (click)="filterRecipeByThereType('mealType',item)" class="me-3 mb-2 btn">{{item}}</button>
+                              }
+                            
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="row">
+                  
+                       @for (item of dummyRecipeArray|search:searchKey|paginate: { itemsPerPage: 9, currentPage: currentPage }; track $index) {
+                         <div  class="col-4" (click)="onRecipeClick(item._id)">
+                            <img [src]="item.image" class="w-100" alt="">
+                            <h4 class="fs-5">{{item.name}}</h4>
+                            <p>Cuisine:{{item.cuisine}}</p>
+                        </div>
+                       }
+                 
+                   
+                </div>
+                  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+               
+            </div>
+          
+        </div>
+    </div>
+    
+</section>

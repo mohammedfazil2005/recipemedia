@@ -1,0 +1,42 @@
+<section>
+    <div class="container">
+    <div class="row bg-success">
+        <div class="row container align-items-center">
+            <div class="col-2"></div>
+            <div class="col-4">
+            <h1 class="fw-bolder text-light">Easiest Way To Make your favorite Meal</h1>
+            <p class="text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet consectetur vero unde perspiciatis quasi aspernatur</p>
+            <a class="btn text-light border" routerLink="/allrecipes" >Explore our Recipes</a>
+        </div>
+        <div class="col-6">
+            <img class="img-fluid w-50" src="https://www.pngmart.com/files/15/Food-Plate-Healthy-PNG.png" alt="">
+        </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section>
+    <div class="container">
+    <div class="d-flex justify-content-between align-items-center mt-3 mb-5">
+       <div>
+        <h1>Popular Recipe of the Week</h1>
+        <p>Our Most popular recipes of the week</p>
+       </div>
+       <div>
+        <a routerLink="/allrecipes">View All</a>
+       </div>
+    </div>
+    <div class="row">
+       
+       @for (item of allRecipes; track $index) {
+         <div class="col-4">
+                <img [src]="item.image" class="w-75" alt="">
+                <p>{{item.name}}</p>
+            </div>
+       }
+       
+       
+    </div>
+</div>
+</section>
