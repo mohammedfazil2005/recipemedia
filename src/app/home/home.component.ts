@@ -25,7 +25,7 @@ export class HomeComponent  implements OnInit{
   fetchAllRecipes(){
     this.api.getAllRecipes().subscribe((res:RecipeArray[])=>{
       this.allRecipes=res.slice(0,6)
-      console.log(this.allRecipes)
+      // console.log(this.allRecipes)
     })
   }
 

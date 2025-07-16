@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CommonResponceType, RecipeArray, responceMessage, savedRecipeType, SavedRecipeType, testimonyType, UserLoginType, UserRegisterType } from '../../interface/interface';
+import { CommonResponceType, ProfileImageType, RecipeArray, responceMessage, savedRecipeType, SavedRecipeType, testimonyType, UserLoginType, UserRegisterType } from '../../interface/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +50,18 @@ export class ApiService {
 
   onFetchSavedRecipe(){
     return this.http.get<savedRecipeType[]>(`${this.baseURL}/savedrecipe`,this.appendToken())
+  }
+
+  onDeleteSavedRecipe(recipeID:string){
+    return this.http.delete<CommonResponceType>(`${this.baseURL}/delete/savedrecipe?recipeID=${recipeID}`,this.appendToken())
+  }
+
+  onFetchProfile(){
+    return this.http.get<ProfileImageType>(`${this.baseURL}/fetchprofile`,this.appendToken())
+  }
+
+   onUpdateProfile(body:FormData){
+    return this.http.patch<CommonResponceType>(`${this.baseURL}/update/profile`,body,this.appendToken())
   }
 
 

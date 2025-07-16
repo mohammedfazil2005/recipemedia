@@ -12,7 +12,7 @@ bg-success fs-1">
                     <img class="card-img-top" [src]="item.recipeImage" alt="" />
                     <div class="card-body d-flex align-items-center justify-content-between">
                         <h5 class="card-title">{{item.recipeName}}</h5>
-                        <button class="btn">
+                        <button class="btn" (click)="deleteRecipe(item._id)">
                             <i class="fa-solid fa-trash text-danger"></i>
                         </button>
                     </div>

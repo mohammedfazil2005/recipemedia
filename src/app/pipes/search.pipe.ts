@@ -13,7 +13,7 @@ export class SearchPipe implements PipeTransform {
 
   transform(recipeArr: RecipeArray[], searchKey: string): RecipeArray[] {
 
-  console.log(this.result)
+  // console.log(this.result)
 
     if(!recipeArr||searchKey==""){
       return recipeArr;

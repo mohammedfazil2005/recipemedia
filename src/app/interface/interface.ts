@@ -64,3 +64,7 @@ export interface savedRecipeType{
   recipeName:string
   userID:string
 }
+
+export interface ProfileImageType{
+  image:string
+}
