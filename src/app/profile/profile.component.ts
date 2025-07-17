@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../services/api/api.service';
 import { CommonResponceType, ProfileImageType } from '../interface/interface';
+import { HeaderComponent } from "../header/header.component";
 
 @Component({
   selector: 'app-profile',
-  imports: [FormsModule],
+  imports: [FormsModule, HeaderComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })

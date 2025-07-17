@@ -1,0 +1,75 @@
+<div class="">
+    <div class="row" style="width: 100%;">
+        @if (isSideBar) {
+        <div class="col-2 pe-0">
+            <app-sidebar></app-sidebar>
+        </div>
+        }
+        <div [class]="dashboardClass">
+            <div class=" bg-warning text-light p-3 d-flex justify-content-between ps-0 w-100">
+                <div>
+                    <h1><button class="btn text-light fs-2" (click)="menuClick()"><i
+                                class="fa-solid fa-bars"></i></button>Welcome to Admin Dashboard</h1>
+                </div>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" data-bs-toggle="dropdown"><i
+                            class="fa-solid fa-user"></i></button>
+                    <ul class="dropdown-menu float-right">
+                        <li (click)="onLogout()">Logout</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-4 d-flex justify-content-evenly">
+                <div class="card " style="background-color: blueviolet;">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-user mx-3"></i>
+                        <div>
+                            <h4 class="me-2">Users</h4>
+                            <h6>{{userCount}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="card " style="background-color: aquamarine;">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-cookie"></i>
+                        <div>
+                            <h4 class="me-2">Recipes</h4>
+                            <h6>{{recipeCount}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="card " style="background-color: burlywood;">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-cookie"></i>
+                        <div>
+                            <h4 class="me-2">Downloads</h4>
+                            <h6>{{downloadsCount}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="background-color: brown;">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-bell"></i>
+                        <div>
+                            <h4 class="me-2">Feedback</h4>
+                            <h6>{{feedbackCount}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                </div>
+                <div class="col-4">
+                    <mat-card class="demo-inline-calendar-card">
+                        <mat-calendar [(selected)]="selected"></mat-calendar>
+                    </mat-card>
+                    <!-- <p>Selected date: {{selected()}}</p> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

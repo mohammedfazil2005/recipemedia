@@ -30,7 +30,7 @@ export class LoginComponent {
           if(res.userRole=="user"){
             this.router.navigateByUrl('/')
           }else{
-            // 
+            this.router.navigateByUrl('/admin')
           }
         },
         error:(reason:{error:string})=>{

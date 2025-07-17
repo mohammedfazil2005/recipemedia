@@ -5,10 +5,11 @@ import { CommonResponceType, RecipeArray, responceMessage } from '../interface/i
 import { HttpErrorResponse } from '@angular/common/http';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { HeaderComponent } from "../header/header.component";
 
 @Component({
   selector: 'app-view-recipe',
-  imports: [RouterLink],
+  imports: [RouterLink, HeaderComponent],
   templateUrl: './view-recipe.component.html',
   styleUrl: './view-recipe.component.css'
 })
@@ -79,7 +80,8 @@ export class ViewRecipeComponent {
 
   // generate PDF
 
-  onGeneratePDF(){
+  onGeneratePDF(res:RecipeArray|null){
+    console.log(res)
     const pdf=new jsPDF()
     pdf.setFontSize(16)
     pdf.setTextColor("red")
@@ -97,8 +99,18 @@ export class ViewRecipeComponent {
     body.push([this.recipe?.ingredients||null])
     
     autoTable(pdf,{head,body,startY:70,})
-    pdf.output('dataurlnewwindow')
+
+    this.api.onDownloadRecipe(res).subscribe((res:CommonResponceType)=>{
+      alert(res.message)
+       pdf.output('dataurlnewwindow')
     pdf.save(`${this.recipe?.name}.pdf`)
+    })
+
+
+
+   
+
+    
 
 
 

@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, Input, NgModule, OnInit } from '@angular/core';
 import { ApiService } from '../services/api/api.service';
 import { RecipeArray } from '../interface/interface';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -6,17 +6,20 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchPipe } from '../pipes/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HeaderComponent } from "../header/header.component";
 
 @Component({
   selector: 'app-recipe',
-  imports: [NgxPaginationModule,SearchPipe,FormsModule],
+  imports: [NgxPaginationModule, SearchPipe, FormsModule, HeaderComponent],
   templateUrl: './recipe.component.html',
   styleUrl: './recipe.component.css'
 })
 export class RecipeComponent implements OnInit{
 
+
   ngOnInit(): void {
     this.fetchAllRecipes()
+    
   }
 
   allRecipes:RecipeArray[]=[]

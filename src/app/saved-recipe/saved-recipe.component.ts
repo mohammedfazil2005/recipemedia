@@ -5,7 +5,7 @@ import { CommonResponceType, responceMessage, savedRecipeType } from '../interfa
 
 @Component({
   selector: 'app-saved-recipe',
-  imports: [],
+  imports: [HeaderComponent],
   templateUrl: './saved-recipe.component.html',
   styleUrl: './saved-recipe.component.css'
 })

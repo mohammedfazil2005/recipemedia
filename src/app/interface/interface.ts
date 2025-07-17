@@ -8,7 +8,7 @@
     servings:number,
     difficulty:string,
     cuisine:string,
-    mealType:string[],
+    mealType:Array<string>,
     image:string,
     _id:string,
     caloriesPerServing:number
@@ -67,4 +67,36 @@ export interface savedRecipeType{
 
 export interface ProfileImageType{
   image:string
+}
+
+export interface allUsersType{
+  username:string,
+  email:string
+}
+
+export interface allDownloadsType{
+  recipeName:string,
+  recipeImage:string,
+  recipeID:string,
+  recipeCuisine:string,
+  count:number
+}
+
+export interface testimonyResponceType{
+  email:string,
+  message:string,
+  name:string,
+  status:string,
+  _id:string
+}
+
+export interface AllCount{
+  userCount:number,
+  recipeCount:number,
+  feedbackCount:number,
+  downloadCount:number
+}
+
+export interface addIngredients{
+  ingredeints:string
 }
