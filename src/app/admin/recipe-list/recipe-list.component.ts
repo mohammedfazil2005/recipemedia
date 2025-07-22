@@ -22,6 +22,7 @@ export class RecipeListComponent {
 
   fetchAllRecipes(){
     this.api.getAllRecipes().subscribe((res:RecipeArray[])=>{
+      console.log(res)
       this.allRecipes=res
     })
   }

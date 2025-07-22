@@ -8,7 +8,7 @@ import { RecipeModel } from '../../admin/recipe-add/RecipeModel';
 })
 export class ApiService {
   
-  baseURL:string="http://localhost:3000"
+  // baseURL:string="http://localhost:3000"
 
   constructor(private http:HttpClient) { }
 
@@ -22,85 +22,85 @@ export class ApiService {
   }
 
   getAllRecipes(){
-    return this.http.get<RecipeArray[]>(`${this.baseURL}/getAllrecipes`)
+    return this.http.get<RecipeArray[]>(`/getAllrecipes`)
   }
 
   onAddTestimony(body:testimonyType){
-    return this.http.post(`${this.baseURL}/addtestimony`,body)
+    return this.http.post(`/addtestimony`,body)
   }
 
   onRegisteUser(body:UserRegisterType){
-    return this.http.post<UserRegisterType>(`${this.baseURL}/register`,body)
+    return this.http.post<UserRegisterType>(`/register`,body)
   }
 
   onLogin(body:{email:string,password:string}){
-    return this.http.post<UserLoginType>(`${this.baseURL}/login`,body)
+    return this.http.post<UserLoginType>(`/login`,body)
   }
 
   onFetchSingleRecipe(id:string){
-    return this.http.get<RecipeArray>(`${this.baseURL}/getsinglerecipe/${id}`,this.appendToken())
+    return this.http.get<RecipeArray>(`/getsinglerecipe/${id}`)
   }
 
   onFetchRelatedRecipe(query:string){
-    return this.http.get<RecipeArray[]>(`${this.baseURL}/getrelatedrecipe?cuisine=${query}`,this.appendToken())
+    return this.http.get<RecipeArray[]>(`/getrelatedrecipe?cuisine=${query}`)
   }
 
   onSaveRecipe(recipeID:String,body:SavedRecipeType){
-    return this.http.post<CommonResponceType>(`${this.baseURL}/saverecipe?recipeID=${recipeID}`,body,this.appendToken())
+    return this.http.post<CommonResponceType>(`/saverecipe?recipeID=${recipeID}`,body)
   }
 
   onFetchSavedRecipe(){
-    return this.http.get<savedRecipeType[]>(`${this.baseURL}/savedrecipe`,this.appendToken())
+    return this.http.get<savedRecipeType[]>(`/savedrecipe`)
   }
 
   onDeleteSavedRecipe(recipeID:string){
-    return this.http.delete<CommonResponceType>(`${this.baseURL}/delete/savedrecipe?recipeID=${recipeID}`,this.appendToken())
+    return this.http.delete<CommonResponceType>(`/delete/savedrecipe?recipeID=${recipeID}`)
   }
 
   onFetchProfile(){
-    return this.http.get<ProfileImageType>(`${this.baseURL}/fetchprofile`,this.appendToken())
+    return this.http.get<ProfileImageType>(`/fetchprofile`)
   }
 
    onUpdateProfile(body:FormData){
-    return this.http.patch<CommonResponceType>(`${this.baseURL}/update/profile`,body,this.appendToken())
+    return this.http.patch<CommonResponceType>(`/update/profile`,body)
   }
 
   onGetAllUsers(){
-    return this.http.get<allUsersType[]>(`${this.baseURL}/getusers`,this.appendToken())
+    return this.http.get<allUsersType[]>(`/getusers`)
   }
 
   onDownloadRecipe(recipe:RecipeArray|null){
-    return this.http.post<CommonResponceType>(`${this.baseURL}/onDownload/${recipe?._id}`,recipe,this.appendToken())
+    return this.http.post<CommonResponceType>(`/onDownload/${recipe?._id}`,recipe)
   }
 
   onGetAllDownloads(){
-    return this.http.get<allDownloadsType[]>(`${this.baseURL}/getalldownloads`,this.appendToken())
+    return this.http.get<allDownloadsType[]>(`/getalldownloads`)
   }
 
   onGetAllTestimonyRequest(){
-    return this.http.get<testimonyResponceType[]>(`${this.baseURL}/getTestimonyrequest`,this.appendToken())
+    return this.http.get<testimonyResponceType[]>(`/getTestimonyrequest`)
   }
 
   onUpdateTestimony(id:string,query:string){
-    return this.http.patch<responceMessage>(`${this.baseURL}/updateTestimony/${id}?status=${query}`,this.appendToken())
+    return this.http.patch<responceMessage>(`/updateTestimony/${id}?status=${query}`,null)
   }
 
   onGetApprovedTestimony(){
-    return this.http.get<testimonyResponceType[]>(`${this.baseURL}/getapprovedtestimonials`,this.appendToken())
+    return this.http.get<testimonyResponceType[]>(`/getapprovedtestimonials`)
   }
 
   onGetCounts(){
-    return this.http.get<AllCount>(`${this.baseURL}/getcount`,this.appendToken())
+    return this.http.get<AllCount>(`/getcount`)
   }
 
   onAddRecipe(body:RecipeModel){
-    return this.http.post<CommonResponceType>(`${this.baseURL}/addrecipe`,body,this.appendToken())
+    return this.http.post<CommonResponceType>(`/addrecipe`,body)
   }
   onDeleteRecipe(id:string){
-    return this.http.post<CommonResponceType>(`${this.baseURL}/deleterecipe/${id}`,null,this.appendToken())
+    return this.http.post<CommonResponceType>(`/deleterecipe/${id}`,null)
   }
   onUpdateRecipe(id:string,body:RecipeModel){
-    return this.http.patch<CommonResponceType>(`${this.baseURL}/updaterecipe/${id}`,body,this.appendToken())
+    return this.http.patch<CommonResponceType>(`/updaterecipe/${id}`,body)
   }
 
 
