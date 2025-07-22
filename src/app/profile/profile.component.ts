@@ -20,9 +20,7 @@ export class ProfileComponent {
   imageFile:File|string=''
   url:string=""
 
-  constructor(private api:ApiService){
-    this.url=this.api.baseURL
-  }
+  constructor(private api:ApiService){}
   
 
 
@@ -30,7 +28,7 @@ export class ProfileComponent {
     this.api.onFetchProfile().subscribe((res:ProfileImageType)=>{
       console.log(res)
       if(res.image){
-        this.imageInput=this.url+'/uploads/'+res.image
+        this.imageInput='http://localhost:3000/'+'/uploads/'+res.image
       }else{
         this.imageInput=""
       }

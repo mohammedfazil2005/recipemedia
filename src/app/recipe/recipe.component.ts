@@ -34,6 +34,7 @@ export class RecipeComponent implements OnInit{
 
   fetchAllRecipes(){
     this.api.getAllRecipes().subscribe((res:RecipeArray[])=>{
+      console.log(res)
       this.allRecipes=res
       this.dummyRecipeArray=this.allRecipes
 
